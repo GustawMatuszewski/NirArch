@@ -1,0 +1,148 @@
+input {
+    keyboard {
+        xkb {}
+    }
+    touchpad {
+        tap
+        natural-scroll
+    }
+    mouse {}
+    trackpoint {}
+}
+
+output "DP-1" {
+    mode "1920x1080@119.982002"
+    position x=1920 y=0
+    scale 1
+}
+
+output "HDMI-A-1" {
+    mode "1920x1080@75"
+    position x=0 y=0
+}
+
+layout {
+    gaps 10
+    center-focused-column "never"
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+    default-column-width { proportion 0.5; }
+    focus-ring {
+        width 3
+        active-color "#e69934ff"
+        inactive-color "#505050"
+    }
+    border {
+        width 1
+        active-color "#e69934ff"
+        inactive-color "#505050"
+        urgent-color "#9b0000"
+    }
+    shadow {
+        softness 30
+        spread 5
+        offset x=0 y=5
+        color "#0009"
+    }
+    struts {}
+}
+
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+spawn-at-startup "waybar"
+spawn-at-startup "swaync"
+spawn-at-startup "discord"
+spawn-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+spawn-at-startup "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+
+hotkey-overlay {}
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+animations {
+    // This is the global movement speed. 
+    // Stiffness 1000 makes moves feel like a quick "snap".
+    window-movement {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
+}
+
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width { proportion 0.5; }
+}
+
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    match app-id="org.pulseaudio.pavucontrol"
+    open-floating true
+    default-column-width { proportion 0.4; }
+    default-window-height { proportion 0.4; }
+}
+
+binds {
+    Mod+Shift+Slash { show-hotkey-overlay; }
+    Mod+Return { spawn "alacritty"; }
+    Mod+D { spawn "fuzzel"; }
+    Mod+M { spawn-sh "wofi --show drun"; }
+    Mod+F { maximize-column; }
+    Mod+Ctrl+F { expand-column-to-available-width; }
+    Mod+R { switch-preset-column-width; }
+    Mod+Alt+M { spawn "bash" "-c" "echo -e '󰓃  Audio Settings\n󰐥  Power Menu\n󰖩  Network Manager' | wofi --dmenu --style ~/.config/wofi/style.css --width 300 --height 220 --location center --hide-input | xargs -I{} bash -c 'if [[ \"{}\" == *\"Audio\"* ]]; then pavucontrol; elif [[ \"{}\" == *\"Power\"* ]]; then echo -e \"󰐥 Shutdown\\n󰜉 Reboot\\n󰜺 Cancel\" | wofi --dmenu --style ~/.config/wofi/style.css --width 250 --height 180 --hide-input | xargs -I{p} bash -c \"if [[ \\\"{p}\\\" == *\\\"Shutdown\\* ]]; then systemctl poweroff; elif [[ \\\"{p}\\\" == *\\\"Reboot\\* ]]; then systemctl reboot; fi\"; elif [[ \"{}\" == *\"Network\"* ]]; then alacritty --title nmtui-float -e nmtui; fi'"; }
+
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+
+    Super+Alt+L { spawn "swaylock"; }
+    XF86AudioRaiseVolume { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
+    XF86AudioLowerVolume { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioMute { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86MonBrightnessUp { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+    XF86MonBrightnessDown { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    Mod+O repeat=false { toggle-overview; }
+    Mod+Q repeat=false { close-window; }
+
+    // --- SUPER + ARROWS: Focus ---
+    Mod+Left  { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+Up    { focus-workspace-up; }
+    Mod+Down  { focus-workspace-down; }
+
+    // --- SUPER + SHIFT + ARROWS: Move/Swap ---
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Right { move-column-right; }
+    Mod+Shift+Up    { move-column-to-workspace-up; }
+    Mod+Shift+Down  { move-column-to-workspace-down; }
+
+    // --- SUPER + CTRL + ARROWS: Internal Nav ---
+    Mod+Ctrl+Left  { focus-column-left; }
+    Mod+Ctrl+Right { focus-column-right; }
+    Mod+Ctrl+Up    { focus-window-up; }
+    Mod+Ctrl+Down  { focus-window-down; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+Shift+E { quit; }
+}

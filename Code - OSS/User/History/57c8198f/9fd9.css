@@ -1,0 +1,15 @@
+window {
+    background-color: #2c2929;
+    border: 2px solid #e69934;
+    width: 300px;   /* Set your custom width here */
+    height: 400px;  /* Set your custom height here */
+    padding: 20px;  /* Set your custom padding here */
+}
+
+#entry:selected {
+    background-color: #e69934; /* selection */
+}
+
+#text:selected {
+    color: #2c2929; /* text-selection */
+}

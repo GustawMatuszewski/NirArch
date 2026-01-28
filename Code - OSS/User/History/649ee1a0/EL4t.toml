@@ -1,0 +1,17 @@
+[colors.primary]
+background = '#2c2929'
+foreground = '#d1d1d1'
+
+[colors.normal]
+black =   '#1a1818'
+red =     '#4a4a4a'
+green =   '#5c5c5c'
+yellow =  '#d68a27' # The "slight" orange
+blue =    '#6e6e6e'
+magenta = '#4a4a4a'
+cyan =    '#5c5c5c'
+white =   '#d1d1d1'
+
+[colors.selection]
+text = '#2c2929'
+background = '#d68a27'

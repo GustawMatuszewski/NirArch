@@ -1,0 +1,32 @@
+@define-color bg #2c2929;
+@define-color accent #e69934;
+
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none; /* Add this to remove any glow */
+    text-shadow: none;
+}
+
+window#waybar {
+    background-color: @bg;
+    color: #ffffff;
+    /* Force border and outline to 0 to remove the orange line */
+    border: none;
+    outline: none;
+}
+
+#cpu, #memory, #temperature, #pulseaudio, #network, #clock, #battery, #custom-settings, #custom-power {
+    padding: 0 12px;
+    color: #ffffff;
+}
+
+#custom-settings:hover, #custom-power:hover {
+    color: @accent;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+#battery.charging {
+    color: #e69934;
+}

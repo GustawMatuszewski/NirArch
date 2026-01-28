@@ -1,0 +1,29 @@
+# Global settings
+max-visible=5
+sort=-time
+layer=overlay
+
+# Position: Top Right (Under Waybar)
+anchor=top-right
+margin=20,50
+
+# Style
+font=sans-serif 11
+background-color=#1e1e2eff
+text-color=#cdd6f4ff
+border-size=2
+border-radius=8
+padding=15
+
+# Colors matched to your Niri config
+border-color=#e69934ff
+progress-color=over #e69934ff
+background-color=#1e1e2e
+
+# Duration: 3 seconds
+default-timeout=3000
+
+# The Progress Bar (The "Small Line")
+# This will show a line that depletes as the 3 seconds run out
+[progression]
+background-color=#505050

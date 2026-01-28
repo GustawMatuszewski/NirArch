@@ -1,0 +1,30 @@
+[window]
+# Exact Waybar Gray with 80% opacity
+opacity = 0.8
+blur = true
+padding = { x = 12, y = 12 }
+dynamic_background_opacity = true
+
+[colors.primary]
+background = "#2c2929"
+foreground = "#ffffff"
+
+[colors.normal]
+# Removing all yellow tints from the color palette
+black   = "#1a1a1a"
+red     = "#f38ba8"
+green   = "#a6e3a1"
+yellow  = "#cdd6f4" # Changed to a neutral off-white
+blue    = "#89b4fa"
+magenta = "#f5c2e7"
+cyan    = "#94e2d5"
+white   = "#bac2de"
+
+[font]
+size = 12.0
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+
+[colors.cursor]
+# Orange match for your Niri borders
+cursor = "#e69934"
+text = "#2c2929"

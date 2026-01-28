@@ -1,0 +1,25 @@
+[window]
+padding = { x = 15, y = 15 }
+opacity = 1.0
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+size = 12.0
+
+[colors.primary]
+background = '#2c2929'
+foreground = '#ffffff'
+
+[colors.normal]
+black =   '#2c2929'
+red =     '#4a4a4a'
+green =   '#4a4a4a'
+yellow =  '#4a4a4a'
+blue =    '#4a4a4a'
+magenta = '#4a4a4a'
+cyan =    '#4a4a4a'
+white =   '#ffffff'
+
+[colors.selection]
+text = '#2c2929'
+background = '#e69934'

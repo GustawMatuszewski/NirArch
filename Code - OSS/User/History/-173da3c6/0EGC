@@ -1,0 +1,71 @@
+{
+  "position": "top",
+  "modules-left": ["battery", "cpu", "memory", "temperature"],
+  "modules-center": ["clock"],
+  "modules-right": ["network", "pulseaudio","custom/settings", "custom/power"],
+
+"battery": {
+    "format": "{icon} {capacity}%  ",
+    "format-charging": "󱐋 {icon} {capacity}%  ",
+    "format-discharging": "{icon} {capacity}%  ",
+    "format-full": "󰁹 {capacity}%  ",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "interval": 10,
+    "tooltip": false
+  },
+
+  "cpu": {
+    "format": " {usage}%",
+    "interval": 2,
+    "tooltip": false
+  },
+
+  "memory": {
+    "format": " {used}/{total} GB",
+    "interval": 5
+  },
+
+  "temperature": {
+    "hwmon-path": "/sys/class/thermal/thermal_zone0/temp",
+    "critical-threshold": 80,
+    "format": " {temperatureC}°C"
+  },
+
+  "clock": {
+    "format": "{:%Y-%m-%d %H:%M:%S}",
+    "interval": 1
+  },
+
+  "network": {
+    "format-wifi": "{ifname}: {ipaddr}",
+    "format-ethernet": "{ifname}: {ipaddr}",
+    "format-disconnected": "No Network",
+    "tooltip-format": "{ifname}\nIP: {ipaddr}\nSignal: {signalStrength}%",
+    "interval": 5
+  },
+
+"custom/settings": {
+    "format": "󰒓",
+    "on-click": "~/.config/scripts/menu.sh"
+},
+"pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 Muted",
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "scroll-step": 5,
+    "on-click": "~/.config/scripts/audio-menu.sh",
+    "on-click-right": "~/.config/scripts/audio-menu.sh mixer"
+},
+"custom/power": {
+    "format": "⏻",
+    "on-click": "~/.config/scripts/power-menu.sh"
+}
+}   

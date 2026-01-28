@@ -1,0 +1,70 @@
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 14px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: rgb(44, 41, 41);
+  min-height: 32px;
+  color: white;
+}
+
+#waybar > box {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#cpu, #memory, #temperature, #workspaces {
+  margin-right: 18px;
+}
+
+#cpu label, #memory label, #temperature label {
+  padding: 0 6px;
+}
+
+#workspaces button {
+  padding: 0 8px;
+  background: transparent;
+  color: white;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+  min-height: 28px;
+}
+
+#workspaces button:hover {
+  color: #ffd599;
+}
+
+#workspaces button.active {
+  border-bottom: 3px solid #ffb347;
+  color: #ffb347;
+  font-weight: bold;
+}
+
+#workspaces button.urgent {
+  border-bottom: 3px solid #ff5555;
+  color: #ff5555;
+}
+
+@define-color col_border_solid #ffb347;
+@define-color col_border_trans rgba(120, 120, 120, 0);
+
+#waybar > box:nth-child(2) > box:nth-child(3) > * > * {
+  padding: 0 10px;
+}
+
+#waybar > box:nth-child(2) > box:nth-child(3) > *:not(:first-child) > * {
+  background-image: linear-gradient(@col_border_trans, @col_border_solid 45%, @col_border_solid 55%, @col_border_trans);
+  background-size: 4px 60%;
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+}
+
+#waybar > box:nth-child(2) > box:nth-child(1) > :not(:first-child) > * > label {
+  padding: 0 10px;
+  background-image: linear-gradient(@col_border_trans, @col_border_solid 45%, @col_border_solid 55%, @col_border_trans);
+  background-size: 4px 60%;
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+}

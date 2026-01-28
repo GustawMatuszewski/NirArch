@@ -1,0 +1,29 @@
+.notification {
+  border: 2px solid #e69934;
+  background: #1e1e2e;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+.notification-content {
+  color: #cdd6f4;
+  padding: 10px;
+}
+
+/* Fixes the timer/progress bar visibility */
+progressbar, progress, trough {
+  min-height: 5px; /* Adjust this for thickness */
+  background-color: #505050; /* Your Niri inactive gray */
+  border-radius: 10px;
+  margin: 4px 10px;
+}
+
+/* The actual "timer" filling the bar */
+progressbar highlight, progress highlight, trough highlight {
+  background-color: #e69934; /* Your Niri active orange */
+}
+
+/* Ensure the control center matches */
+.widget-menubar > box > .menu-button-container > menubutton > button > label {
+  color: #cdd6f4;
+}

@@ -1,0 +1,17 @@
+[colors.primary]
+background = '#2c2929'
+foreground = '#ffffff'
+
+[colors.normal]
+black =   '#2c2929'
+red =     '#ff5555'
+green =   '#50fa7b'
+yellow =  '#f1fa8c'
+blue =    '#e69934' # This changes the nmtui 'buttons' to your orange
+magenta = '#ff79c6'
+cyan =    '#8be9fd'
+white =   '#ffffff'
+
+[colors.selection]
+text = '#2c2929'
+background = '#e69934'

@@ -1,0 +1,54 @@
+* {
+    font-family: "Inter", "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 14px;
+    color: #e69934ff;
+}
+
+/* Main window */
+window {
+    margin: 0px;
+    padding: 10px;
+    border-radius: 1px;
+    background-color: rgba(44,41,41,.5);
+    border: 8px solid #e69934ff;
+}
+
+/* Search box */
+#input {
+    margin: 8px;
+    padding: 10px;
+    border-radius: 1px;
+    border: none;
+    background-color: #e69934ff;
+    color: rgba(44,41,41,.5);
+}
+
+/* Results container */
+#inner-box {
+    margin: 5px;
+    background-color: rgba(44,41,41,.5);
+}
+
+/* Entry */
+#entry {
+    padding: 10px;
+    border-radius: 1px;
+    background-color: rgba(44,41,41,.5);
+    color: #e69934ff;
+}
+
+/* Selected entry */
+#entry:selected {
+    background-color: #e69934ff;
+    color: rgba(44,41,41,.5);
+}
+
+/* Text & icons */
+#text {
+    margin-left: 10px;
+    color: inherit;
+}
+
+#img {
+    margin-right: 8px;
+}

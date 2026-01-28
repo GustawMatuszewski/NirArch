@@ -1,0 +1,26 @@
+[window]
+opacity = 0.85
+blur = true
+padding = { x = 12, y = 12 }
+
+[colors.primary]
+background = "#2c2929"
+foreground = "#ffffff"
+
+[colors.cursor]
+cursor = "#ffffff"
+text = "#2c2929"
+
+[colors.normal]
+black   = "#1a1a1a"
+red     = "#f38ba8"
+green   = "#a6e3a1"
+yellow  = "#ffffff" 
+blue    = "#ffffff"
+magenta = "#ffffff"
+cyan    = "#ffffff"
+white   = "#ffffff"
+
+[font]
+size = 12.0
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }

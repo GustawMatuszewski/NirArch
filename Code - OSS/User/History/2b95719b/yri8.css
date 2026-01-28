@@ -1,0 +1,24 @@
+.notification {
+  border: 2px solid #e69934;
+  background: rgb(44, 41, 41);
+  border-radius: 8px;
+}
+
+.notification-content {
+  color: #cdd6f4;
+  padding: 10px;
+}
+
+/* This is the countdown line you wanted */
+.widget-menubar > box > .menu-button-container > menubutton > button > label {
+  color: #cdd6f4;
+}
+
+/* Progress bar / Timer line color */
+progressbar, progress {
+  background-color: #505050;
+}
+
+trough highlight {
+  background-color: #e69934;
+}

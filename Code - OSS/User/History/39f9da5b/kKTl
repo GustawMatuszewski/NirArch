@@ -1,0 +1,25 @@
+# Colors
+BG_COLOR="#2c2929"
+ACCENT_COLOR="#e69934"
+TEXT_COLOR="#ffffff"
+
+# --- Main Menu Settings ---
+MAIN_W="300px"
+MAIN_H="320px"
+MAIN_ROUND="8px"
+MAIN_FONT="14px"
+MAIN_PADDING="10px"
+
+# --- Power Menu Settings ---
+POWER_W="250px"
+POWER_H="180px"
+POWER_ROUND="15px"
+POWER_FONT="13px"
+POWER_PADDING="20px"
+
+# --- Audio Menu Settings ---
+AUDIO_W="450px"
+AUDIO_H="250px"
+AUDIO_ROUND="4px"
+AUDIO_FONT="12px"
+AUDIO_PADDING="5px"

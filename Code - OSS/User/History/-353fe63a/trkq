@@ -1,0 +1,27 @@
+# Global settings
+max-visible=5
+sort=-time
+layer=overlay
+
+# Position: Top Right
+anchor=top-right
+
+# Offset from the edge (Adjust Y to sit under your Waybar)
+# Format: X,Y. If your Waybar is 30px tall, try 20,40
+margin=20,40
+
+# Style
+font=sans-serif 11
+background-color=#1e1e2eff
+text-color=#cdd6f4ff
+border-color=#e69934ff
+border-size=2
+border-radius=8
+padding=15
+
+# Duration: 3 seconds (3000ms)
+default-timeout=3000
+
+[urgency=high]
+border-color=#f38ba8ff
+default-timeout=0

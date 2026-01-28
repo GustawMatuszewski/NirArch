@@ -1,0 +1,69 @@
+{
+  "position": "top",
+  "modules-left": ["battery", "cpu", "memory", "temperature"],
+  "modules-center": ["clock"],
+  "modules-right": ["network", "pulseaudio", "custom/power"],
+
+  "battery": {
+    "format": "{icon} {capacity}%  ",
+    "format-charging": " {capacity}%  ",
+    "format-discharging": "{icon} {capacity}%  ",
+    "format-full": " {capacity}%  ",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "interval": 10,
+    "tooltip": false,
+    "css": "font-family: 'JetBrainsMono Nerd Font';"
+  },
+
+  "cpu": {
+    "format": " {usage}%",
+    "interval": 2,
+    "tooltip": false
+  },
+
+  "memory": {
+    "format": " {used}/{total} GB",
+    "interval": 5
+  },
+
+  "temperature": {
+    "hwmon-path": "/sys/class/thermal/thermal_zone0/temp",
+    "critical-threshold": 80,
+    "format": " {temperatureC}°C"
+  },
+
+  "clock": {
+    "format": "{:%Y-%m-%d %H:%M:%S}",
+    "interval": 1
+  },
+
+  "network": {
+    "format-wifi": "{ifname}: {ipaddr}",
+    "format-ethernet": "{ifname}: {ipaddr}",
+    "format-disconnected": "No Network",
+    "tooltip-format": "{ifname}\nIP: {ipaddr}\nSignal: {signalStrength}%",
+    "interval": 5
+  },
+
+"pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": " {icon} {volume}%",
+    "format-muted": "  Muted",
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "󰂑",
+        "headset": "󰂑",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""]
+    },
+    "scroll-step": 5,
+    "on-click": "pavucontrol",
+    "ignored-sinks": ["Easy Effects Sink"]
+},
+"custom/power": {
+    "format": "⏻",
+    "on-click": "swaync-client -t -en 'Power Menu' 'Choose an action:' --action 'Shutdown:systemctl poweroff' --action 'Reboot:systemctl reboot' --action 'Cancel:swaync-client -C' --expire-time 20000"
+}
+}   
