@@ -157,10 +157,10 @@ binds {
     Mod+Shift+Up    { move-column-to-workspace-up; }
     Mod+Shift+Down  { move-column-to-workspace-down; }
 
-    Mod+Ctrl+Left  { focus-column-left; }
-    Mod+Ctrl+Right { focus-column-right; }
-    Mod+Ctrl+Up    { focus-window-up; }
-    Mod+Ctrl+Down  { focus-window-down; }
+    Mod+Ctrl+Left  { focus-monitor-left; }
+    Mod+Ctrl+Right { focus-monitor-right; }
+    Mod+Ctrl+Up    { focus-monitor-up; }
+    Mod+Ctrl+Down  { focus-monitor-down; }
 
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
