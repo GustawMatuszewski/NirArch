@@ -14,9 +14,9 @@
     },
     "format": "{icon} {capacity}%",
     "format-discharging": "{icon} {capacity}%",
-    "format-charging": "󱐋 {icon} {capacity}%",
-    "format-plugged": "󱐋 {icon} {capacity}%",
-    "format-full": "󱐋 {icon} {capacity}%",
+    "format-charging": "{icon} {capacity}%",
+    "format-plugged": "{icon} {capacity}%",
+    "format-full": "{icon} {capacity}%",
     "format-icons": {
         "charging": [
             "󰢟", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"
