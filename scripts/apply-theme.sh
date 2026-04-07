@@ -21,5 +21,19 @@ sed -i "s/@define-color accent #.*;/@define-color accent $ACCENT_COLOR;/g" ~/.co
 
 # Sync Niri
 sed -i "s/active-color \".*\"/active-color \"${ACCENT_COLOR}ff\"/g" ~/.config/niri/config.kdl
+sed -i "s/inactive-color \".*\"/inactive-color \"${ACCENT_COLOR}ff\"/g" ~/.config/niri/config.kdl
+
+# Sync SwayNC
+for css in ~/.config/swaync/*.css; do
+    [ -e "$css" ] || continue
+    sed -i "s/#e69934/${ACCENT_COLOR}/g" "$css"
+    sed -i "s/rgba(44, 41, 41/rgba($(printf '%d, %d, %d' 0x${BG_COLOR:1:2} 0x${BG_COLOR:3:2} 0x${BG_COLOR:5:2})/g" "$css"
+    sed -i "s/rgb(44, 41, 41/rgb($(printf '%d, %d, %d' 0x${BG_COLOR:1:2} 0x${BG_COLOR:3:2} 0x${BG_COLOR:5:2})/g" "$css"
+    sed -i "s/#2c2929/${BG_COLOR}/g" "$css"
+done
+
+# Reload everything
+swaync-client -rs 2>/dev/null
+pkill -SIGUSR2 waybar 2>/dev/null
 
 echo "Colors synced globally. Geometry is now up to you in each script/css."

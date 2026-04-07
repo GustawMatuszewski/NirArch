@@ -1,0 +1,9 @@
+Code - OSS/
+dconf/
+pulse/
+pavucontrol.ini
+user-dirs.dirs
+user-dirs.locale
+*.bak
+*.swp
+*~

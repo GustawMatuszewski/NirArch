@@ -1,3 +1,5 @@
+prefer-no-csd
+
 input {
     keyboard {
         xkb {}
@@ -123,6 +125,12 @@ window-rule {
     open-floating true
     default-column-width { proportion 0.4; }
     default-window-height { proportion 0.6; }
+}
+window-rule {
+    match title="audio-float"
+    open-floating true
+    default-column-width { proportion 0.4; }
+    default-window-height { proportion 0.5; }
 }
 
 binds {

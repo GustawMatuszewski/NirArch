@@ -1,8 +1,27 @@
 #!/bin/bash
-CHOICE=$(echo -e "󰐥  Shutdown\n󰜉  Reboot\n󰜺  Cancel" | wofi --dmenu --style ~/.config/wofi/style.css --width 250 --height 200 --location center --hide-search)
+# ── Power menu (wofi dmenu) ──
 
-if [[ "$CHOICE" == *"Shutdown"* ]]; then
-    systemctl poweroff
-elif [[ "$CHOICE" == *"Reboot"* ]]; then
-    systemctl reboot
-fi
+STYLE="$HOME/.config/wofi/style.css"
+
+ENTRIES="󰌾  Lock
+󰤄  Suspend
+󰜉  Reboot
+󰐥  Shutdown
+  Logout
+󰜺  Cancel"
+
+CHOICE=$(echo -e "$ENTRIES" | wofi --dmenu \
+    --style "$STYLE" \
+    --width 250 --height 340 \
+    --location center \
+    --hide-search \
+    --cache-file /dev/null \
+    --prompt "Power")
+
+case "$CHOICE" in
+    *"Lock"*)     swaylock ;;
+    *"Suspend"*)  systemctl suspend ;;
+    *"Reboot"*)   systemctl reboot ;;
+    *"Shutdown"*) systemctl poweroff ;;
+    *"Logout"*)   loginctl terminate-user "$USER" ;;
+esac

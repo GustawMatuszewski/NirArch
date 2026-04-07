@@ -5,7 +5,7 @@
   "modules-right": ["network", "pulseaudio","custom/settings", "custom/power"],
 
 "battery": {
-    "bat": "BAT1",
+    "bat": "BAT0",
     "adapter": "ADP1",
     "interval": 1,
     "states": {

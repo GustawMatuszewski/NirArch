@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configuration
-BAT="BAT1"
+BAT="BAT0"
 ADP="ADP1"
 LOW_LEVEL=10
 

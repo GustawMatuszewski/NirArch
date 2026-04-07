@@ -1,26 +1,313 @@
+/* ═══════════════════════════════════════════════════════
+   SwayNC — matched to wofi/waybar theme
+   Overrides ALL system defaults from /etc/xdg/swaync/
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+    --cc-bg: rgba(44, 41, 41, 0.95);
+    --noti-border-color: #e69934;
+    --noti-bg: 44, 41, 41;
+    --noti-bg-alpha: 0.95;
+    --noti-bg-darker: rgb(34, 31, 31);
+    --noti-bg-hover: rgb(60, 55, 55);
+    --noti-bg-focus: rgba(230, 153, 52, 0.2);
+    --noti-close-bg: rgba(0, 0, 0, 0.3);
+    --noti-close-bg-hover: #e69934;
+    --text-color: #ffffff;
+    --text-color-disabled: rgba(255, 255, 255, 0.4);
+    --bg-selected: #e69934;
+    --border: 2px solid #e69934;
+    --border-radius: 0px;
+    --notification-shadow: none;
+    --font-size-body: 14px;
+    --font-size-summary: 14px;
+}
+
+@define-color cc-bg rgba(44, 41, 41, 0.95);
+@define-color noti-border-color #e69934;
+@define-color noti-bg rgba(44, 41, 41, 0.95);
+@define-color noti-bg-opaque rgb(44, 41, 41);
+@define-color noti-bg-darker rgb(34, 31, 31);
+@define-color noti-bg-hover rgb(60, 55, 55);
+@define-color noti-bg-hover-opaque rgb(60, 55, 55);
+@define-color noti-bg-focus rgba(230, 153, 52, 0.2);
+@define-color noti-close-bg rgba(0, 0, 0, 0.3);
+@define-color noti-close-bg-hover #e69934;
+@define-color text-color #ffffff;
+@define-color text-color-disabled rgba(255, 255, 255, 0.4);
+@define-color bg-selected #e69934;
+
+* {
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    border-radius: 0px;
+}
+
+/* ── Notification window ── */
+.notification-row {
+    outline: none;
+    padding: 0;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+    background: transparent;
+}
+
 .notification {
-    border: 2px solid #e69934ff;
-    background: rgb(44, 41, 41);
+    background: rgba(44, 41, 41, 0.95);
+    border: 2px solid #e69934;
     border-radius: 0px;
     margin: 4px;
+    padding: 0;
+    box-shadow: none;
 }
 
 .notification-content {
     color: #ffffff;
     padding: 10px;
+    border-radius: 0px;
+    background: transparent;
 }
 
-progressbar, progress {
-    min-height: 4px;
-    background-color: #505050;
+.notification-default-action {
+    border-radius: 0px;
+    background: transparent;
 }
 
-trough highlight {
-    background-color: #e69934ff;
+.notification-default-action:hover {
+    background: rgba(230, 153, 52, 0.1);
 }
 
-.control-center {
-    background: rgb(44, 41, 41);
-    border: 2px solid #e69934ff;
+/* ── Summary / Body / Time ── */
+.summary {
+    font-weight: bold;
+    font-size: 14px;
+    color: #e69934;
+}
+
+.time {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.body {
+    font-size: 13px;
     color: #ffffff;
+}
+
+.body-image {
+    margin-top: 6px;
+    border-radius: 0px;
+}
+
+.app-icon {
+    margin: 8px;
+}
+
+/* ── Close button ── */
+.close-button {
+    background: rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    border: 1px solid #e69934;
+    border-radius: 0px;
+    padding: 2px 6px;
+    margin: 6px;
+    min-width: 20px;
+    min-height: 20px;
+}
+
+.close-button:hover {
+    background: #e69934;
+    color: #2c2929;
+}
+
+/* ── Action buttons ── */
+.notification-action {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #e69934;
+    border-radius: 0px;
+    color: #ffffff;
+    margin: 4px;
+    padding: 6px;
+}
+
+.notification-action:hover {
+    background: #e69934;
+    color: #2c2929;
+}
+
+/* ── Control Center ── */
+.control-center {
+    background: rgba(44, 41, 41, 0.95);
+    border: 2px solid #e69934;
+    border-radius: 0px;
+    color: #ffffff;
+    padding: 10px;
+    box-shadow: none;
+}
+
+.control-center-list {
+    background: transparent;
+}
+
+.control-center-list-placeholder {
+    opacity: 0.5;
+}
+
+/* ── Title / Header ── */
+.widget-title {
+    color: #e69934;
+    font-weight: bold;
+    margin: 6px 0;
+}
+
+.widget-title > label {
+    color: #e69934;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.widget-title > button {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #e69934;
+    border-radius: 0px;
+    color: #ffffff;
+    padding: 4px 10px;
+}
+
+.widget-title > button:hover {
+    background: #e69934;
+    color: #2c2929;
+}
+
+/* ── DND toggle ── */
+.widget-dnd {
+    margin: 6px 0;
+}
+
+.widget-dnd > switch {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #e69934;
+    border-radius: 0px;
+}
+
+.widget-dnd > switch:checked {
+    background: #e69934;
+}
+
+.widget-dnd > switch slider {
+    background: #ffffff;
+    border-radius: 0px;
+}
+
+/* ── Progress bar ── */
+progressbar,
+progress,
+trough {
+    border-radius: 0px;
+}
+
+progressbar {
+    min-height: 4px;
+}
+
+trough {
+    background-color: rgba(80, 80, 80, 0.5);
+    min-height: 4px;
+}
+
+progress {
+    background-color: #e69934;
+    min-height: 4px;
+}
+
+/* ── Notification groups ── */
+.notification-group {
+    margin: 0;
+}
+
+.notification-group-headers {
+    font-weight: bold;
+    color: #e69934;
+}
+
+.notification-group-icon {
+    color: #e69934;
+}
+
+.notification-group-collapse-button {
+    background: transparent;
+    color: #e69934;
+    border: none;
+    border-radius: 0px;
+}
+
+.notification-group-collapse-button:hover {
+    background: rgba(230, 153, 52, 0.2);
+}
+
+.notification-group-close-all-button {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #e69934;
+    border-radius: 0px;
+    color: #ffffff;
+}
+
+.notification-group-close-all-button:hover {
+    background: #e69934;
+    color: #2c2929;
+}
+
+/* ── Mpris (media player) ── */
+.widget-mpris {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #e69934;
+    border-radius: 0px;
+    padding: 8px;
+    margin: 4px 0;
+}
+
+.widget-mpris-title {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.widget-mpris-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ── Buttons grid ── */
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #e69934;
+    border-radius: 0px;
+    color: #ffffff;
+    padding: 8px;
+    margin: 2px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+    background: rgba(230, 153, 52, 0.3);
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
+    background: #e69934;
+    color: #2c2929;
+}
+
+/* ── Label ── */
+.widget-label > label {
+    color: #ffffff;
+    font-size: 13px;
+}
+
+/* ── Blank/floating windows ── */
+.blank-window {
+    background: transparent;
+}
+
+.floating-notifications {
+    background: transparent;
 }

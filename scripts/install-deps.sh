@@ -71,9 +71,9 @@ fi
 # 5. CORE INSTALLATION (Stuff your scripts MUST have)
 echo "󰄬 Installing core script dependencies..."
 if [[ "$DISTRO" == "arch" ]]; then
-    $INSTALL_CMD wofi alacritty pipewire pipewire-pulse pipewire-alsa wireplumber networkmanager bluez bluez-utils swww libnotify btop pavucontrol ttf-nerd-fonts-symbols-common ttf-jetbrains-mono-nerd noto-fonts-emoji
+    $INSTALL_CMD niri wofi alacritty waybar swaync pipewire pipewire-pulse pipewire-alsa wireplumber networkmanager bluez bluez-utils swww libnotify btop pavucontrol pulsemixer bluetuith-bin swaylock ttf-nerd-fonts-symbols-common ttf-jetbrains-mono-nerd noto-fonts-emoji
 elif [[ "$DISTRO" == "fedora" ]]; then
-    $INSTALL_CMD wofi alacritty pipewire-pulseaudio pipewire-utils wireplumber NetworkManager bluez bluez-utils swww libnotify btop pavucontrol google-noto-emoji-fonts jetbrains-mono-fonts-all nerd-fonts flatpak
+    $INSTALL_CMD niri wofi alacritty waybar swaync pipewire-pulseaudio pipewire-utils wireplumber NetworkManager bluez bluez-utils swww libnotify btop pavucontrol pulsemixer swaylock google-noto-emoji-fonts jetbrains-mono-fonts-all nerd-fonts flatpak
     sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 fi
 
