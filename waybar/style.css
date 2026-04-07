@@ -6,24 +6,101 @@
     font-size: 14px;
     border: none;
     border-radius: 0;
-    box-shadow: none; /* Add this to remove any glow */
+    box-shadow: none;
     text-shadow: none;
+    min-height: 0;
 }
 
 window#waybar {
     background-color: @bg;
     color: #ffffff;
-    /* Force border and outline to 0 to remove the orange line */
     border: none;
     outline: none;
+    transition: background-color 0.3s ease;
 }
 
-#cpu, #memory, #temperature, #pulseaudio, #network, #clock, #battery, #custom-settings, #custom-power {
+/* ── All modules base ── */
+#cpu, #memory, #temperature, #pulseaudio, #network, #clock,
+#battery, #backlight, #custom-settings, #custom-power,
+#custom-notification, #custom-media {
     padding: 0 12px;
+    color: #ffffff;
+    transition: all 0.2s ease;
+}
+
+/* ── Hover glow on interactive modules ── */
+#custom-settings:hover, #custom-power:hover,
+#custom-notification:hover, #pulseaudio:hover,
+#network:hover, #backlight:hover {
+    color: @accent;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ── Clock ── */
+#clock {
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+/* ── Battery states ── */
+#battery.warning {
+    color: @accent;
+}
+
+#battery.critical {
+    color: #ff4444;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+#battery.charging {
+    color: #88cc88;
+}
+
+/* ── Temperature critical ── */
+#temperature.critical {
+    color: #ff4444;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ── Notification bell ── */
+#custom-notification {
+    font-size: 15px;
+    padding: 0 10px;
+}
+
+/* ── Media (now playing) ── */
+#custom-media {
+    color: @accent;
+    font-style: italic;
+    padding: 0 14px;
+}
+
+/* ── Power button ── */
+#custom-power {
+    color: #cc5555;
+    padding: 0 14px 0 12px;
+}
+
+#custom-power:hover {
+    color: #ff4444;
+    background-color: rgba(255, 68, 68, 0.1);
+}
+
+/* ── Pulse animation for critical states ── */
+@keyframes pulse {
+    from { opacity: 1; }
+    to   { opacity: 0.4; }
+}
+
+/* ── Tooltip styling ── */
+tooltip {
+    background-color: @bg;
+    border: 2px solid @accent;
+    border-radius: 0px;
     color: #ffffff;
 }
 
-#custom-settings:hover, #custom-power:hover {
-    color: @accent;
-    background-color: rgba(255, 255, 255, 0.1);
+tooltip label {
+    color: #ffffff;
+    padding: 4px;
 }

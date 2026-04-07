@@ -2,7 +2,7 @@
   "position": "top",
   "modules-left": ["battery", "cpu", "memory", "temperature"],
   "modules-center": ["clock"],
-  "modules-right": ["network", "pulseaudio","custom/settings", "custom/power"],
+  "modules-right": ["custom/media", "network", "backlight", "pulseaudio", "custom/notification", "custom/settings", "custom/power"],
 
 "battery": {
     "bat": "BAT0",
@@ -28,57 +28,115 @@
 },
 
   "cpu": {
-    "format": " {usage}%",
+    "format": " {usage}%",
     "interval": 2,
-    "tooltip": false
+    "tooltip": true,
+    "tooltip-format": "CPU: {usage}%\n{avg_frequency} GHz"
   },
 
   "memory": {
-    "format": " {used}/{total} GB",
-    "interval": 5
+    "format": " {used}/{total} GB",
+    "interval": 5,
+    "tooltip-format": "RAM: {used}/{total} GB ({percentage}%)\nSwap: {swapUsed}/{swapTotal} GB"
   },
 
   "temperature": {
     "hwmon-path": "/sys/class/thermal/thermal_zone0/temp",
     "critical-threshold": 80,
-    "format": " {temperatureC}°C"
+    "format": " {temperatureC}°C",
+    "format-critical": " {temperatureC}°C"
   },
 
   "clock": {
-    "format": "{:%Y-%m-%d %H:%M:%S}",
-    "interval": 1
+    "format": "  {:%a %d %b   %H:%M:%S}",
+    "interval": 1,
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+        "mode": "month",
+        "weeks-pos": "left",
+        "format": {
+            "months": "<span color='#e69934'><b>{}</b></span>",
+            "weeks": "<span color='#999999'>{}</span>",
+            "weekdays": "<span color='#e69934'><b>{}</b></span>",
+            "today": "<span color='#ffffff' background='#e69934'><b>{}</b></span>"
+        }
+    }
   },
 
   "network": {
-    "format-wifi": "{ifname}: {ipaddr}",
-    "format-ethernet": "{ifname}: {ipaddr}",
-    "format-disconnected": "No Network",
-    "tooltip-format": "{ifname}\nIP: {ipaddr}\nSignal: {signalStrength}%",
+    "format-wifi": "󰖩 {essid}",
+    "format-ethernet": "󰈁 {ifname}",
+    "format-disconnected": "󰖪 Off",
+    "tooltip-format-wifi": "󰖩 {essid}\n  {ipaddr}\n  {signalStrength}%\n󰁝 {bandwidthUpBits}\n󰁅 {bandwidthDownBits}",
+    "tooltip-format-ethernet": "󰈁 {ifname}\n  {ipaddr}\n󰁝 {bandwidthUpBits}\n󰁅 {bandwidthDownBits}",
     "interval": 5
+  },
+
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "tooltip-format": "Brightness: {percent}%",
+    "scroll-step": 5
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 Muted",
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "scroll-step": 5,
+    "on-click": "~/.config/scripts/audio-menu.sh",
+    "on-click-right": "~/.config/scripts/audio-menu.sh mixer",
+    "tooltip-format": "{desc}\nVolume: {volume}%"
+  },
+
+  "custom/media": {
+    "format": "{}",
+    "interval": 3,
+    "exec": "playerctl metadata --format '{{artist}} — {{title}}' 2>/dev/null | cut -c1-40",
+    "exec-if": "playerctl status 2>/dev/null | grep -q Playing",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "max-length": 40,
+    "tooltip-format": "Now Playing"
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+        "notification": "󰂚<sup></sup>",
+        "none": "󰂜",
+        "dnd-notification": "󰂛<sup></sup>",
+        "dnd-none": "󰂛",
+        "inhibited-notification": "󰂚<sup></sup>",
+        "inhibited-none": "󰂜",
+        "dnd-inhibited-notification": "󰂛<sup></sup>",
+        "dnd-inhibited-none": "󰂛"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
   },
 
 "custom/settings": {
     "format": "󰒓",
     "on-click": "~/.config/scripts/menu.sh"
 },
-"pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": "󰝟 Muted",
-    "format-icons": {
-        "headphone": "",
-        "hands-free": "",
-        "headset": "",
-        "phone": "",
-        "portable": "",
-        "car": "",
-        "default": ["󰕿", "󰖀", "󰕾"]
-    },
-    "scroll-step": 5,
-    "on-click": "~/.config/scripts/audio-menu.sh",
-    "on-click-right": "~/.config/scripts/audio-menu.sh mixer"
-},
+
 "custom/power": {
     "format": "⏻",
     "on-click": "~/.config/scripts/power-menu.sh"
 }
-}   
+}

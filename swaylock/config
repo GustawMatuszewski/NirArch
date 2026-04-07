@@ -1,0 +1,61 @@
+# ── SwayLock Effects Config ──
+# Matches NirArch theme: #2c2929 bg, #e69934 accent
+
+# Screenshot + blur effect
+screenshots
+effect-blur=20x5
+effect-vignette=0.5:0.5
+
+# Fade in
+fade-in=0.2
+
+# Clock overlay
+clock
+timestr=%H:%M
+datestr=%A, %d %B
+
+# Font
+font=JetBrainsMono Nerd Font
+font-size=48
+
+# Indicator ring
+indicator
+indicator-radius=120
+indicator-thickness=8
+indicator-caps-lock
+
+# Colors (inside = fill, ring = border, text = text on indicator)
+# Default state
+inside-color=2c292900
+ring-color=e69934ff
+text-color=ffffffff
+line-color=00000000
+separator-color=00000000
+
+# Typing
+key-hl-color=e69934ff
+bs-hl-color=ff4444ff
+inside-clear-color=2c2929cc
+ring-clear-color=e69934ff
+text-clear-color=ffffffff
+
+# Verifying
+inside-ver-color=2c2929cc
+ring-ver-color=e6993488
+text-ver-color=ffffffff
+
+# Wrong password
+inside-wrong-color=2c2929cc
+ring-wrong-color=ff4444ff
+text-wrong-color=ff4444ff
+
+# Layout text
+layout-bg-color=00000000
+layout-text-color=ffffff88
+
+# Misc
+ignore-empty-password
+disable-caps-lock-text
+grace=3
+grace-no-mouse
+grace-no-touch

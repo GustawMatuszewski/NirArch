@@ -32,6 +32,17 @@ for css in ~/.config/swaync/*.css; do
     sed -i "s/#2c2929/${BG_COLOR}/g" "$css"
 done
 
+# Sync SwayLock
+if [ -f ~/.config/swaylock/config ]; then
+    sed -i "s/ring-color=.*/ring-color=${ACCENT_COLOR:1}ff/g" ~/.config/swaylock/config
+    sed -i "s/key-hl-color=.*/key-hl-color=${ACCENT_COLOR:1}ff/g" ~/.config/swaylock/config
+    sed -i "s/ring-clear-color=.*/ring-clear-color=${ACCENT_COLOR:1}ff/g" ~/.config/swaylock/config
+    sed -i "s/inside-color=.*/inside-color=${BG_COLOR:1}00/g" ~/.config/swaylock/config
+    sed -i "s/inside-clear-color=.*/inside-clear-color=${BG_COLOR:1}cc/g" ~/.config/swaylock/config
+    sed -i "s/inside-ver-color=.*/inside-ver-color=${BG_COLOR:1}cc/g" ~/.config/swaylock/config
+    sed -i "s/inside-wrong-color=.*/inside-wrong-color=${BG_COLOR:1}cc/g" ~/.config/swaylock/config
+fi
+
 # Reload everything
 swaync-client -rs 2>/dev/null
 pkill -SIGUSR2 waybar 2>/dev/null
