@@ -48,18 +48,12 @@
   },
 
   "clock": {
-    "format": "  {:%a %d %b   %H:%M:%S}",
+    "format": "{:%Y-%m-%d  %H:%M:%S}",
     "interval": 1,
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
         "mode": "month",
-        "weeks-pos": "left",
-        "format": {
-            "months": "<span color='#e69934'><b>{}</b></span>",
-            "weeks": "<span color='#999999'>{}</span>",
-            "weekdays": "<span color='#e69934'><b>{}</b></span>",
-            "today": "<span color='#ffffff' background='#e69934'><b>{}</b></span>"
-        }
+        "weeks-pos": "left"
     }
   },
 

@@ -16,7 +16,6 @@ window#waybar {
     color: #ffffff;
     border: none;
     outline: none;
-    transition: background-color 0.3s ease;
 }
 
 /* ── All modules base ── */
@@ -25,20 +24,16 @@ window#waybar {
 #custom-notification, #custom-media {
     padding: 0 12px;
     color: #ffffff;
-    transition: all 0.2s ease;
 }
 
-/* ── Hover glow on interactive modules ── */
-#custom-settings:hover, #custom-power:hover,
-#custom-notification:hover, #pulseaudio:hover,
-#network:hover, #backlight:hover {
+/* ── Hover only on clickable modules ── */
+#custom-settings:hover, #custom-power:hover {
     color: @accent;
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* ── Clock ── */
+/* ── Clock — no bold, plain ── */
 #clock {
-    font-weight: bold;
     letter-spacing: 0.5px;
 }
 
@@ -68,9 +63,9 @@ window#waybar {
     padding: 0 10px;
 }
 
-/* ── Media (now playing) ── */
+/* ── Media (now playing) — subdued white ── */
 #custom-media {
-    color: @accent;
+    color: rgba(255, 255, 255, 0.6);
     font-style: italic;
     padding: 0 14px;
 }
@@ -95,7 +90,7 @@ window#waybar {
 /* ── Tooltip styling ── */
 tooltip {
     background-color: @bg;
-    border: 2px solid @accent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 0px;
     color: #ffffff;
 }
