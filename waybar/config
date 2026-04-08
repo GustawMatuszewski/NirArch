@@ -28,14 +28,14 @@
 },
 
   "cpu": {
-    "format": " {usage}%",
+    "format": " {usage}%",
     "interval": 2,
     "tooltip": true,
     "tooltip-format": "CPU: {usage}%\n{avg_frequency} GHz"
   },
 
   "memory": {
-    "format": " {used}/{total} GB",
+    "format": " {used}/{total} GB",
     "interval": 5,
     "tooltip-format": "RAM: {used}/{total} GB ({percentage}%)\nSwap: {swapUsed}/{swapTotal} GB"
   },
@@ -43,8 +43,8 @@
   "temperature": {
     "hwmon-path": "/sys/class/thermal/thermal_zone0/temp",
     "critical-threshold": 80,
-    "format": " {temperatureC}°C",
-    "format-critical": " {temperatureC}°C"
+    "format": " {temperatureC}°C",
+    "format-critical": " {temperatureC}°C"
   },
 
   "clock": {
