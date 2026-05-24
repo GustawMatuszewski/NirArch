@@ -32,6 +32,16 @@ window#waybar {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+#backlight:hover, #pulseaudio:hover, #network:hover {
+    color: @accent;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#custom-media:hover {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
 /* ── Clock — no bold, plain ── */
 #clock {
     letter-spacing: 0.5px;

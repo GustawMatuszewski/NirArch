@@ -3,7 +3,34 @@ text = '#2c2929'
 background = '#e69934' # selection
 
 # ~/.config/alacritty/alacritty.toml
+[general]
+import = [
+    "~/.config/alacritty/colors.toml"
+]
+
+[font]
+size = 14.0
+
+normal = {
+    family = "JetBrainsMono Nerd Font"
+    style = "Regular"
+}
+
+bold = {
+    family = "JetBrainsMono Nerd Font"
+    style = "Bold"
+}
+
+italic = {
+    family = "JetBrainsMono Nerd Font"
+    style = "Italic"
+}
+
+bold_italic = {
+    family = "JetBrainsMono Nerd Font"
+    style = "Bold Italic"
+}
+
 [window]
 opacity = 0.85
 blur = true  # no-op on niri, but harmless to keep
-

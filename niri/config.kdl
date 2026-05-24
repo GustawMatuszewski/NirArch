@@ -12,6 +12,12 @@ input {
     trackpoint {}
 }
 
+output "eDP-1" {
+    mode "1920x1200@60"
+    position x=0 y=-120
+    scale 1.2
+}
+
 output "DP-1" {
     mode "1920x1080@119.982002"
     position x=1920 y=0
@@ -60,8 +66,14 @@ gestures {
     hot-corners {
         off
     }
+    swipe-to-workspace {
+        threshold 30
+        direction "any"
+    }
 }
 
+spawn-at-startup "swww" "~/.config/wallpapers/default.png" repeat=true
+spawn-at-startup "swaylock"
 spawn-at-startup "waybar"
 spawn-at-startup "swaync"
 spawn-at-startup "~/.config/scripts/bat-notify.sh"
